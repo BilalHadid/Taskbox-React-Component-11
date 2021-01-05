@@ -1,7 +1,8 @@
 import React from "react";
-
+import { tskinterface } from "../component/Task";
 import { TaskList } from "../component/TaskList";
 // import * as TaskStories from "./Task.stories";
+
 import { Story, Meta } from "@storybook/react/types-6-0";
 
 interface Tasks {
@@ -11,10 +12,10 @@ interface Tasks {
   updatedAt?: Date | undefined;
 }
 interface tasker {
+  tasks: tskinterface[];
   loading: boolean;
-  tasks?: Tasks[] | undefined;
-  onPinTask: (id?: string | undefined) => void;
-  onArchiveTask: (id?: string | undefined) => void;
+  onPinTask?: any;
+  onArchiveTask?: any;
 }
 
 export default {

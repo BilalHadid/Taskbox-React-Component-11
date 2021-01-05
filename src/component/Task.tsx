@@ -1,5 +1,6 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import "./Task.css";
+
 export interface tskinterface {
   state: string;
   id?: string | undefined;
@@ -7,48 +8,55 @@ export interface tskinterface {
 }
 export interface allTask {
   task: tskinterface;
-  onArchiveTask: (id?: string | undefined) => void;
-  onPinTask: (id?: string | undefined) => void;
+  onArchiveTask: (task: tskinterface) => void;
+  onPinTask: (task: tskinterface) => void;
 }
 
-export const Task: React.FC<allTask> = ({
-  task: { id, title, state },
-  onArchiveTask,
-  onPinTask,
-}) => {
+export const Task: React.FC<allTask> = ({ task, onArchiveTask, onPinTask }) => {
   return (
-    <div className={`list-item ${state}`}>
-      <label className="checkbox">
+    <div className={`list-item ${task.state}`} style={{ display: "flex" }}>
+      <label
+        className="checkbox"
+        onClick={() => {
+          onArchiveTask(task);
+        }}
+      >
         <input
           type="checkbox"
-          defaultChecked={state === "TASK_ARCHIVED"}
+          defaultChecked={task.state === "TASK_ARCHIVED"}
           disabled={true}
           name="checked"
         />
-        <span
-          className="checkbox-custom"
-          onClick={() => {
-            onArchiveTask(id);
-          }}
-        />
+        <span style={{ cursor: "pointer" }} className="checkbox-custom" />
       </label>
       <div className="title">
         <input
           type="text"
-          value={title}
+          value={task.title}
           readOnly={true}
           placeholder="Input title"
         />
       </div>
 
-      <div className="actions" onClick={(event) => event.stopPropagation()}>
-        {state !== "TASK_ARCHIVED" && (
+      <div
+        className="actions"
+        onClick={(event) => event.stopPropagation()}
+        style={{ marginLeft: "10%" }}
+      >
+        {task.state !== "TASK_ARCHIVED" && (
           <a
-            onClick={() => {
-              onPinTask(id);
-            }}
+            onClick={() => onPinTask(task)}
+            style={{ cursor: "pointer", fontSize: "25px" }}
           >
-            <span className={`icon-star`} />
+            <span
+              style={
+                task.state === "TASK_PINNED"
+                  ? { color: "orange" }
+                  : { color: "gray" }
+              }
+            >
+              ✯
+            </span>
           </a>
         )}
       </div>

@@ -1,0 +1,28 @@
+.wrapper-message {
+  width: 50%;
+  margin-left: 25%;
+  width: 50%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+@media only screen and (max-width: 600px) {
+  .wrapper-message {
+    width: 100%;
+
+    margin-left: 0%;
+  }
+}
+.checktick {
+  font-size: 100px;
+  color: lightblue;
+}
+.title-message {
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+.subtitle-message {
+  font-weight: lighter;
+}

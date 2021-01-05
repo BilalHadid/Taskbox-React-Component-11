@@ -1,0 +1,35 @@
+.checkbox {
+  padding: 1%;
+  cursor: pointer;
+  color: aqua;
+}
+.title {
+  padding: 1%;
+  margin-right: 5%;
+  cursor: pointer;
+}
+.title input {
+  width: 200px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.title input:hover {
+  background-color: lightblue;
+}
+.actions {
+  padding: 1%;
+  margin-right: 5%;
+}
+.list-item {
+  padding: 2%;
+}
+.list-item:hover {
+  background-color: lightblue;
+}
+/* .fa-star {
+  color: gray;
+}
+.fa-star:hover {
+  color: orange;
+} */

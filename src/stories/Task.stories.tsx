@@ -16,9 +16,8 @@ interface tskinterface {
 }
 interface allTask {
   task: tskinterface;
-
-  onArchiveTask: (id?: string | undefined) => void;
-  onPinTask: (id?: string | undefined) => void;
+  onArchiveTask: (task: tskinterface) => void;
+  onPinTask: (task: tskinterface) => void;
 }
 
 const Template: Story<allTask> = (args) => <Task {...args} />;
