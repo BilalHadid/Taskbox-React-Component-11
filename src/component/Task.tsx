@@ -44,7 +44,7 @@ export const Task: React.FC<allTask> = ({ task, onArchiveTask, onPinTask }) => {
         style={{ marginLeft: "10%" }}
       >
         {task.state !== "TASK_ARCHIVED" && (
-          <a
+          <span
             onClick={() => onPinTask(task)}
             style={{ cursor: "pointer", fontSize: "25px" }}
           >
@@ -57,7 +57,7 @@ export const Task: React.FC<allTask> = ({ task, onArchiveTask, onPinTask }) => {
             >
               ✯
             </span>
-          </a>
+          </span>
         )}
       </div>
     </div>
